@@ -7,11 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 class Prenda extends Model
 {
   protected $table      = 'Prenda';
-  protected $primaryKey = 'prenda_id';
+  protected $primaryKey = 'Prenda_id';
 
 
   protected $fillable   = [
-      'prenda_id','marca','talla','color','estado'
+      'Prenda_id','marca','talla','color','estado'
   ];
+
+
+
+  public function Imagen()
+  {
+      return $this->hasOne('Imagen::class');
+  }
 
 }

@@ -14,7 +14,7 @@ class CreatePrendasTable extends Migration
     public function up()
     {
         Schema::create('Prenda', function (Blueprint $table) {
-            $table->increments('prenda_id');
+            $table->increments('Prenda_id');
             $table->string('marca',25);
             $table->string('talla',25);
             $table->string('color',40);
@@ -24,6 +24,8 @@ class CreatePrendasTable extends Migration
         });
     }
 
+
+
     /**
      * Reverse the migrations.
      *
@@ -31,6 +33,6 @@ class CreatePrendasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('prendas');
+        Schema::dropIfExists('Prenda');
     }
 }

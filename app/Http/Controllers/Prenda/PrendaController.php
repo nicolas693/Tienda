@@ -76,7 +76,8 @@ class PrendaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $file=Storage::disk('local')->get('nombre');
+        dd($file);
     }
 
     /**
