@@ -11,7 +11,7 @@ class Prenda extends Model
 
 
   protected $fillable   = [
-      'Prenda_id','marca','talla','color','estado'
+      'Prenda_id','tipo','marca','talla','color','estado'
   ];
 
 

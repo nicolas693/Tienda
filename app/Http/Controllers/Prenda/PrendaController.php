@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use App\Prenda\Prenda;
+use App\Prenda\Imagen;
 
 class PrendaController extends Controller
 {
@@ -18,8 +19,21 @@ class PrendaController extends Controller
      */
     public function index()
     {
-        //$prendas=Prenda::lists();
-        //dd($prendas);
+        return view('Prenda.index');
+    }
+
+    public function mostrar()
+    {
+        $prendas=Prenda::all();
+        $imagen=Imagen::all();
+
+        foreach ($imagen as $key => $ima) {
+          $imagenes[$ima->imagen]=$ima->Prenda_id;
+
+        }
+        return view('Prenda.mostrar')->with('prendas',$prendas)->with('imagenes',$imagenes);
+
+
     }
 
     /**
@@ -29,7 +43,7 @@ class PrendaController extends Controller
      */
     public function create()
     {
-        return view('/Prenda/create');
+        return view('Prenda.create');
     }
 
     /**
@@ -40,21 +54,24 @@ class PrendaController extends Controller
      */
     public function store(Request $request)
     {
-        $id=Prenda::max('prenda_id', 'desc')+1;
+
         $input=$request->all();
         $input['estado']=0;
         $file=$request->file('image');
         $filename='123';
-        $date = date('Y-m-d-H-i-s');
-        $date=$date.'('.$id.')';
+        $date = date('Y-m-d-H-i-s').".png";
 
         if($file){
 
-          Storage::disk('local')->put($date,File::get($file));
+          Storage::disk('uploads')->put($date,File::get($file));
         }
 
         Prenda::create($input);
-        return view('/administrar');
+        $imagen['Prenda_id']=Prenda::max('prenda_id', 'desc');
+        $imagen['imagen']=$date;
+        Imagen::create($imagen);
+
+        return view('Prenda.index');
     }
 
     /**
@@ -78,6 +95,7 @@ class PrendaController extends Controller
     {
         $file=Storage::disk('local')->get('nombre');
         dd($file);
+        return view('Prenda.edit');
     }
 
     /**

@@ -23,28 +23,24 @@
           <div class="panel panel1">
 
             <p>Ingresar Prenda</p>
-            <a <button href="{{route('Prenda.create')}}" type="button" id= 'Eliminar' name='cancelar' class="btn btn-default btn-sm m-t-10 btn-danger" style ="margin-left: 20px" >Eliminar</button></a>
+            <!--<a <button href="{{route('Prenda.create')}}" type="button" id= 'Eliminar' name='cancelar' class="btn btn-default btn-sm m-t-10 btn-danger" style ="margin-left: 20px" >Eliminar</button></a>-->
 
           </div>
           <div class="panel panel2">
-            <p>Give</p>
-            <p>Take</p>
-            <p>Receive</p>
+            <p>Ver Prendas</p>
+
           </div>
           <div class="panel panel3">
-            <p>Experience</p>
-            <p>It</p>
-            <p>Today</p>
+
+            <p>Accion 3</p>
           </div>
           <div class="panel panel4">
-            <p>Give</p>
-            <p>All</p>
-            <p>You can</p>
+
+            <p>Accion 4</p>
           </div>
           <div class="panel panel5">
-            <p>Life</p>
-            <p>In</p>
-            <p>Motion</p>
+
+            <p>Accion 5</p>
           </div>
         </div>
 
@@ -65,7 +61,11 @@
           const cl=this.classList;
           sleep(1000).then(() => {
               if(cl[1]=== 'panel1'){
-                window.location.href = '/Prenda/createeee';
+                window.location.href = '/Prenda/create';
+              }
+
+              if(cl[1]=== 'panel2'){
+                window.location.href = '/verPrendas';
               }
 
           })

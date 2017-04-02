@@ -16,10 +16,9 @@ Route::get('/', function () {
     return view('prueba');
 });
 
-Route::get('/administrar', function () {
-    //return view('welcome');
-    return view('Prenda.index');
-});
+
 
   route::resource('Prenda','Prenda\PrendaController',['only' => ['store','update']]);
 route::get('/Prenda/create',['as' => 'Prenda.create', 'uses' => 'Prenda\PrendaController@create']);
+route::get('/administrar',['as' => 'Prenda.index', 'uses' => 'Prenda\PrendaController@index']);
+route::get('/verPrendas',['as' => 'Prenda.mostrar', 'uses' => 'Prenda\PrendaController@mostrar']);

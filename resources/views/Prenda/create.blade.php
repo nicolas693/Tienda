@@ -27,6 +27,10 @@
           <div class="panel-body">
 
             <div class="col-sm-6" style="margin-top:4%;">
+              <div class="form-group col-sm-12">
+                  {!!form::label('Tipo')!!}
+                  {!!form::text('tipo',null,['id'=>'tipo','class'=>'form-control'])!!}
+             </div>
                 <div class="form-group col-sm-12">
                     {!!form::label('Marca')!!}
                     {!!form::text('marca',null,['id'=>'marca','class'=>'form-control'])!!}

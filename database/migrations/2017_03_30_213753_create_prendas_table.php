@@ -15,6 +15,7 @@ class CreatePrendasTable extends Migration
     {
         Schema::create('Prenda', function (Blueprint $table) {
             $table->increments('Prenda_id');
+            $table->string('tipo',25);
             $table->string('marca',25);
             $table->string('talla',25);
             $table->string('color',40);
